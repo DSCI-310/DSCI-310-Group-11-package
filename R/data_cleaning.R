@@ -16,6 +16,10 @@ data_cleaning <- function(dataframe, columns) {
     stop("`dataframe` expects a data frame")
   }
 
+  if (ncol(dataframe) == 0) {
+    stop("`data_cleaning` expects a non-empty data frame")
+  }
+
   col_names <- names(dataframe)
 
   if (setequal(col_names, columns)) {
