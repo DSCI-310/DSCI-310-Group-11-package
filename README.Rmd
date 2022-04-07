@@ -37,7 +37,8 @@ Often times, when dealing with data, we want to tidy our data by removing column
 ```{r data-cleaning}
 library(projectPackage)
 
-data_cleaning(mtcars, c("drat","vs"))
+tidy_data <- data_cleaning(mtcars, c("drat","vs"))
+head(tidy_data)
 ```
 And if we want to create a recipe, we can easily create that using `projectPackage::recipe_scale_center()` instead of writing so many lines of code. 
 
