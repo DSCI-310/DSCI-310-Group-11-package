@@ -1,5 +1,4 @@
 library(testthat)
-source("../../R/recipe_scale_center.R")
 
 test_that("`recipe_scale_center` should return a `tidymodels` recipe,
           given a data frame and formula", {

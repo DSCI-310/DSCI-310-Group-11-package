@@ -1,0 +1,52 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# projectPackage
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of projectPackage is to provide simplified functions to do data 
+preprocessing for exploratory data analyses. 
+
+## Installation
+
+You can install the development version of projectPackage from [Github](https://github.com/DSCI-310/DSCI-310-Group-11-package) like so:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("DSCI-310-Group-11-package")
+```
+
+## Usage
+
+Often times, when dealing with data, we want to tidy our data by removing columns from our data set. It can get monotonous writing and seeing the same lines of code over and over again across different projects, so `projectPackage::data_cleaning()` solves that.
+
+```{r data-cleaning}
+library(projectPackage)
+
+data_cleaning(mtcars, c("drat","vs"))
+```
+And if we want to create a recipe, we can easily create that using `projectPackage::recipe_scale_center()` instead of writing so many lines of code. 
+
+``` {r recipe}
+recipe_scale_center(mtcars, mpg ~ hp)
+```
+
+Lastly, if you want to create a `ggpairs` correlation matrix plot, this package also covers that, and also makes it prettier!
+
+``` {r corr-plot}
+correlation_graph(mtcars[1:3])
+```

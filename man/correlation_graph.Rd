@@ -10,7 +10,8 @@ correlation_graph(dataframe)
 \item{dataframe}{A data frame or tibble.}
 }
 \value{
-A ggpairs scatterplot representing a correlation matrix between pairs of variables
+A ggpairs scatterplot representing a correlation matrix between pairs
+of variables
 }
 \description{
 A short-cut function for creating 2 dimensional ggpair scatterplots

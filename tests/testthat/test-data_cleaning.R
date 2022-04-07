@@ -1,5 +1,4 @@
 library(testthat)
-source("../../R/data_cleaning.R")
 
 test_that("data_cleaning should output a data frame with the specified columns removed", {
   expect_equal(data_cleaning(df, col_ppl), df_gen_num_col, ignore_attr = TRUE)
