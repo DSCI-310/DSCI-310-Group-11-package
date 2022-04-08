@@ -1,8 +1,8 @@
 ---
-title: "G11_package-vignette"
+title: "vignette"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{G11_package-vignette}
+  %\VignetteIndexEntry{vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
