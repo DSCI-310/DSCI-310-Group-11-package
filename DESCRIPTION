@@ -1,11 +1,13 @@
 Package: projectPackage
-Title: What the Package Does (One Line, Title Case)
+Title: Data Preprocessing for Exploratory Data Analysis
 Version: 0.0.0.9000
 Authors@R: c(
     person("Amy", "Kong", , "amykong26@gmail.com", role = c("aut", "cre")),
     person("Jaskaran", "Singh", , "jaskaran1116@gmail.com", role = "aut"),
     person("Sam", "Zhang", , "HUYM2000@gmail.com", role = "aut"))
-Description: What the package does (one paragraph).
+Description: A package for simplifying data pre-processing for exploratory data 
+    analyses. Includes functions for tidying data, making recipes, and generating 
+    a more exciting ggpairs plot.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -18,6 +20,7 @@ Suggests:
     GGally,
     recipes,
     vdiffr,
-    ggplot2
+    ggplot2,
+    covr
 VignetteBuilder: knitr
 Config/testthat/edition: 3
