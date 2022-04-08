@@ -16,10 +16,9 @@ knitr::opts_chunk$set(
 
 ```{r setup, message = FALSE, echo = FALSE, error = FALSE}
 library(projectPackage)
-
 ```
 
-## Introduction to projectPackage
+# Introduction to projectPackage
 
 The goal of projectPackage is to provide simplified functions to achieve the goal of data preprocessing for exploratory data analyses. The projectPackage makes the following steps quick and easy:
 
@@ -38,7 +37,8 @@ head(mtcars)
 data <- mtcars
 ```
 
-## Demonstration of basic functions in projectPackage
+
+# Demonstration of basic functions in projectPackage
 
 ## 1. Dropping columns with `data_cleaning()`
 
@@ -81,7 +81,7 @@ correlation_graph(data[1:3])
 ```
 
 ## 3. Creating a recipe for knn model using `recipe_scale_center()`
-`recipe_scale_center()` creates a recipe and also scales and centers all the predictors in the given formula.
+If we want to make a model, we have to first create a recipe specifying a formula and any additional steps we want to perform; and, more often than not, we want to scale and center the data. So `recipe_scale_center()` creates a recipe and also scales and centers all the predictors in the given formula.
 
 For example, we can create a recipe using `mpg` has the target and `hp` and `cyl` as the predictors.
 ```{r recipe-scale-center, warning = FALSE, error = FALSE}

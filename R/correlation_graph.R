@@ -18,7 +18,7 @@ correlation_graph <- function(dataframe) {
 
   GGally::ggpairs(
     data = dataframe,
-    lower = list(continuous = GGally::wrap("points", size = 0.4, color = "steelblue", alpha = 0.5)),
+    lower = list(continuous = GGally::wrap("points", size = 0.45, color = "steelblue", alpha = 0.5)),
     diag = list(continuous = GGally::wrap("densityDiag", fill = "steelblue"))
   ) +
     ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 40, size = 7))

@@ -3,5 +3,6 @@
 ^README.Rmd
 ^LICENSE.md
 ^docs$
-
+^CONTRIBUTING.md
+^CODE_OF_CONDUCT.md
 ^\.github$
