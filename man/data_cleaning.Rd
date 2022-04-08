@@ -4,10 +4,10 @@
 \alias{data_cleaning}
 \title{Creates a new data frame with selected columns dropped from the old data frame}
 \usage{
-data_cleaning(data_frame, columns)
+data_cleaning(dataframe, columns)
 }
 \arguments{
-\item{data_frame}{A data frame or data frame extension (e.g. a tibble).}
+\item{dataframe}{A data frame or data frame extension (e.g. a tibble).}
 
 \item{columns}{Name(s) of column(s) from the data frame}
 }
