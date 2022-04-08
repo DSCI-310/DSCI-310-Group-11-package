@@ -14,6 +14,58 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, message = FALSE, echo = FALSE, error = FALSE}
 library(projectPackage)
+
 ```
+
+## Introduction to projectPackage
+
+The goal of projectPackage is to provide simplified functions to achieve the goal of data preprocessing for exploratory data analyses. The projectPackage makes the following steps quick and easy:
+
+-   Removing certain columns from a data set
+-   Creating a ggpairs correlation plot
+-   Creating a recipe for knn model
+
+This document introduces you all of the tools mentioned above as well as examples of how to apply them to data frames and use them in different real-world scenarios.
+
+## Data: mtcars
+
+For the purpose of demonstration, we will use a basic data set called mtcars. This data set has 11 columns, 32 rows and is documented in ?mtcars. Note that "mtcars" is a data frame and below is the first 6 rows.
+
+```{r dataset, warning=FALSE, echo = FALSE}
+head(mtcars)
+data <- mtcars
+```
+
+## Demonstration of basic functions in projectPackage
+
+## 1. Dropping columns with data_cleaning()
+
+Often when you work with large data sets, there will be columns that are redundant or not of interest. In that case, you can use our function data_cleaning() to drop those columns. For details on how to use the function, check out help(data_cleaning).
+
+-   **dropping a single column "mpg" from mtcars**
+
+```{r data_cleaning1, warning = FALSE, error = FALSE}
+head(data_cleaning(data, "mpg"))
+```
+
+As you can see above, the column mpg has been dropped from the data frame.
+
+-   **dropping multiple columns from mtcars**
+
+```{r data_cleaning2, warning = FALSE, error = FALSE}
+head(data_cleaning(data, c("mpg","disp","qsec")))
+```
+
+Again, columns mpg, disp and qsec has been dropped.
+
+-   **When an inappropriate column name is inputted, an error will occur.**
+
+For instance, if I accidentally used the wrong column name mpf instead of mpg. The function will kindly produce an error.
+
+data_cleaning(data, "mpf") will produce the following message: *"Error in data_cleaning(data, "mpf") : column name does not exist in the data frame"*
+
+## 2. Creating a ggpairs correlation plot
+
+## 3. Creating a recipe for knn model
