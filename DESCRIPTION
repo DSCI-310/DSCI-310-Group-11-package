@@ -1,6 +1,6 @@
 Package: projectPackage
 Title: Data Preprocessing for Exploratory Data Analysis
-Version: 1.0.0
+Version: 0.0.0.9000
 Authors@R: c(
     person("Amy", "Kong", , "amykong26@gmail.com", role = c("aut", "cre")),
     person("Jaskaran", "Singh", , "jaskaran1116@gmail.com", role = "aut"),
