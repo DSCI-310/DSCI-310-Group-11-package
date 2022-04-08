@@ -17,3 +17,51 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(projectPackage)
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Create a recipe using `recipe_scale_center()`
+`recipe_scale_center()` creates a recipe and also scales and centers all the predictors in the given formula.
+For example, we can create a recipe using `mpg` has the target and `hp` and `cyl` as the predictors.
+
+```{r recipe-scale-center}
+recipe_scale_center(mtcars, mpg ~ hp + cyl)
+```
