@@ -88,10 +88,9 @@
 <li>Creating a recipe for knn model</li>
 </ul>
 <p>This document introduces you all of the tools mentioned above as well as examples of how to apply them to data frames and use them in different real-world scenarios.</p>
-</div>
-<div class="section level2">
-<h2 id="data-mtcars">Data: <code>mtcars</code><a class="anchor" aria-label="anchor" href="#data-mtcars"></a>
-</h2>
+<div class="section level3">
+<h3 id="data-mtcars">Data: <code>mtcars</code><a class="anchor" aria-label="anchor" href="#data-mtcars"></a>
+</h3>
 <p>For the purpose of demonstration, we will use a basic data set called <code>mtcars</code>. This data set has 11 columns, 32 rows and is documented in <code><a href="https://rdrr.io/r/datasets/mtcars.html" class="external-link">?mtcars</a></code>. Note that <code>mtcars</code> is a data frame and below is the first 6 rows.</p>
 <pre><code><span class="co">#&gt;                    mpg cyl disp  hp drat    wt  qsec vs am gear carb</span>
 <span class="co">#&gt; Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span>
@@ -101,13 +100,13 @@
 <span class="co">#&gt; Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span>
 <span class="co">#&gt; Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></code></pre>
 </div>
+</div>
 <div class="section level2">
 <h2 id="demonstration-of-basic-functions-in-projectpackage">Demonstration of basic functions in projectPackage<a class="anchor" aria-label="anchor" href="#demonstration-of-basic-functions-in-projectpackage"></a>
 </h2>
-</div>
-<div class="section level2">
-<h2 id="dropping-columns-with-data_cleaning">1. Dropping columns with <code>data_cleaning()</code><a class="anchor" aria-label="anchor" href="#dropping-columns-with-data_cleaning"></a>
-</h2>
+<div class="section level3">
+<h3 id="dropping-columns-with-data_cleaning">1. Dropping columns with <code>data_cleaning()</code><a class="anchor" aria-label="anchor" href="#dropping-columns-with-data_cleaning"></a>
+</h3>
 <p>Often when you work with large data sets, there will be columns that are redundant or not of interest. In that case, you can use our function <code><a href="../reference/data_cleaning.html">data_cleaning()</a></code> to drop those columns. For details on how to use the function, check out <code><a href="../reference/data_cleaning.html">help(data_cleaning)</a></code>.</p>
 <ul>
 <li><strong>dropping a single column <code>mpg</code> from mtcars</strong></li>
@@ -141,9 +140,9 @@
 <p>For instance, if I accidentally used the wrong column name mpf instead of <code>mpg</code>. The function will kindly produce an error.</p>
 <p><code>data_cleaning(data, "mpf")</code> will produce the following message: <em>“Error in data_cleaning(data,”mpf“) : column name does not exist in the data frame”</em></p>
 </div>
-<div class="section level2">
-<h2 id="creating-a-ggpairs-correlation-plot-using-correlation_graph">2. Creating a ggpairs correlation plot using <code>correlation_graph()</code><a class="anchor" aria-label="anchor" href="#creating-a-ggpairs-correlation-plot-using-correlation_graph"></a>
-</h2>
+<div class="section level3">
+<h3 id="creating-a-ggpairs-correlation-plot-using-correlation_graph">2. Creating a ggpairs correlation plot using <code>correlation_graph()</code><a class="anchor" aria-label="anchor" href="#creating-a-ggpairs-correlation-plot-using-correlation_graph"></a>
+</h3>
 <p>Often times visualizations are needed to better understand the raw/modified data. Data visualization helps in the breakdown of complex problems by transforming data into a more understandable format and showing trends and outliers. A good visualization tells a story by reducing noise from data and emphasizing the most important facts.</p>
 <p>We know that <code>GGally</code>’s <code>ggpairs()</code> function can create a correlation matrix for us, however, the plot can be hard to read if there is a lot of data. Additionally, the plot can look a bit boring – lacking colour. The <code><a href="../reference/correlation_graph.html">correlation_graph()</a></code> function solves those problems for us.</p>
 <p>For details on how to use the function, check out <code><a href="../reference/correlation_graph.html">help(correlation_graph)</a></code>.</p>
@@ -152,10 +151,10 @@
 <span class="co">#&gt;   +.gg   ggplot2</span></code></pre>
 <p><img src="project_package-vignette_files/figure-html/plot-1.png" width="700"></p>
 </div>
-<div class="section level2">
-<h2 id="creating-a-recipe-for-knn-model-using-recipe_scale_center">3. Creating a recipe for knn model using <code>recipe_scale_center()</code><a class="anchor" aria-label="anchor" href="#creating-a-recipe-for-knn-model-using-recipe_scale_center"></a>
-</h2>
-<p><code><a href="../reference/recipe_scale_center.html">recipe_scale_center()</a></code> creates a recipe and also scales and centers all the predictors in the given formula.</p>
+<div class="section level3">
+<h3 id="creating-a-recipe-for-knn-model-using-recipe_scale_center">3. Creating a recipe for knn model using <code>recipe_scale_center()</code><a class="anchor" aria-label="anchor" href="#creating-a-recipe-for-knn-model-using-recipe_scale_center"></a>
+</h3>
+<p>If we want to make a model, we have to first create a recipe specifying a formula and any additional steps we want to perform; and, more often than not, we want to scale and center the data. So <code><a href="../reference/recipe_scale_center.html">recipe_scale_center()</a></code> creates a recipe and also scales and centers all the predictors in the given formula.</p>
 <p>For example, we can create a recipe using <code>mpg</code> has the target and <code>hp</code> and <code>cyl</code> as the predictors.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/recipe_scale_center.html">recipe_scale_center</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">mpg</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">cyl</span><span class="op">)</span>
@@ -171,6 +170,7 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Centering for recipes::all_predictors()</span>
 <span class="co">#&gt; Scaling for recipes::all_predictors()</span></code></pre></div>
+</div>
 </div>
   </div>
 
