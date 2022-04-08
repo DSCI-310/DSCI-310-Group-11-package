@@ -24,3 +24,4 @@ Suggests:
     covr
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+URL: https://dsci-310.github.io/DSCI-310-Group-11-package/
