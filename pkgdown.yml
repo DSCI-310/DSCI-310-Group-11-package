@@ -3,7 +3,7 @@ pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   project_package-vignette: project_package-vignette.html
-last_built: 2022-04-08T22:58Z
+last_built: 2022-04-08T23:01Z
 urls:
   reference: https://dsci-310.github.io/DSCI-310-Group-11-package/reference
   article: https://dsci-310.github.io/DSCI-310-Group-11-package/articles
