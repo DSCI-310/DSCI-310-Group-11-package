@@ -68,7 +68,7 @@ data_cleaning(data, "mpf") will produce the following message: *"Error in data_c
 ## 2. Creating a ggpairs correlation plot
 Often times visualizations are needed to better understand the raw/modified data. Data visualization helps in the breakdown of complex problems by transforming data into a more understandable format and showing trends and outliers. A good visualization tells a story by reducing noise from data and emphasizing the most important facts. 
 
-This analysis compares the correlation matrix between the desired pair of variables. The `correlation_graph()` function does that for us. 
+We know that `GGally`'s `ggpairs()` function can create a correlation matrix for us, however, the plot can be hard to read if there is a lot of data. Additionally, the plot can look a bit boring -- lacking colour. The `correlation_graph()` function solves those problems for us. 
 
 For details on how to use the function, check out `help(correlation_graph)`.
 
