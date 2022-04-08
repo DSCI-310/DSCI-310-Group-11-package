@@ -8,4 +8,4 @@
 
 - To help you get started with the project, please refer [here](https://github.com/DSCI-310/DSCI-310-Group-11/blob/main/README.md)
 
-- All contributors must abide by our [code of conduct]()
+- All contributors must abide by our [code of conduct](https://github.com/DSCI-310/DSCI-310-Group-11-package/blob/main/CODE_OF_CONDUCT.md)
