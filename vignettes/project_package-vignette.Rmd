@@ -29,10 +29,9 @@ The goal of projectPackage is to provide simplified functions to achieve the goa
 
 This document introduces you all of the tools mentioned above as well as examples of how to apply them to data frames and use them in different real-world scenarios.
 
-
 ## Data: `mtcars`
 
-For the purpose of demonstration, we will use a basic data set called `mtcars`. This data set has 11 columns, 32 rows and is documented in ?mtcars. Note that "mtcars" is a data frame and below is the first 6 rows.
+For the purpose of demonstration, we will use a basic data set called `mtcars`. This data set has 11 columns, 32 rows and is documented in `?mtcars`. Note that `mtcars` is a data frame and below is the first 6 rows.
 
 ```{r dataset, warning=FALSE, echo = FALSE}
 head(mtcars)
@@ -41,12 +40,11 @@ data <- mtcars
 
 ## Demonstration of basic functions in projectPackage
 
-## 1. Dropping columns with data_cleaning()
+## 1. Dropping columns with `data_cleaning()`
 
 Often when you work with large data sets, there will be columns that are redundant or not of interest. In that case, you can use our function `data_cleaning()` to drop those columns. For details on how to use the function, check out `help(data_cleaning)`.
 
-
--   **dropping a single column "mpg" from mtcars**
+-   **dropping a single column `mpg` from mtcars**
 
 ```{r data_cleaning1, warning = FALSE, error = FALSE}
 head(data_cleaning(data, "mpg"))
@@ -60,23 +58,22 @@ As you can see above, the column mpg has been dropped from the data frame.
 head(data_cleaning(data, c("mpg","disp","qsec")))
 ```
 
-Again, columns mpg, disp and qsec has been dropped.
+Again, columns `mpg`, `disp`, and `qsec` have been dropped.
 
 -   **When an inappropriate column name is inputted, an error will occur.**
 
-For instance, if I accidentally used the wrong column name mpf instead of mpg. The function will kindly produce an error.
+For instance, if I accidentally used the wrong column name mpf instead of `mpg`. The function will kindly produce an error.
 
-data_cleaning(data, "mpf") will produce the following message: *"Error in data_cleaning(data, "mpf") : column name does not exist in the data frame"*
+`data_cleaning(data, "mpf")` will produce the following message: *"Error in data_cleaning(data, "mpf") : column name does not exist in the data frame"*
 
 
-## 3. Creating a recipe for knn model
-=======
+## 2. Creating a ggpairs correlation plot using `correlation_graph()`
+
 Often times visualizations are needed to better understand the raw/modified data. Data visualization helps in the breakdown of complex problems by transforming data into a more understandable format and showing trends and outliers. A good visualization tells a story by reducing noise from data and emphasizing the most important facts. 
 
 We know that `GGally`'s `ggpairs()` function can create a correlation matrix for us, however, the plot can be hard to read if there is a lot of data. Additionally, the plot can look a bit boring -- lacking colour. The `correlation_graph()` function solves those problems for us. 
 
 For details on how to use the function, check out `help(correlation_graph)`.
-
 
 ```{r plot, warning = FALSE, echo = FALSE}
 correlation_graph(data[1:3])
