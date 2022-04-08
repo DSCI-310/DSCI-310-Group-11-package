@@ -4,10 +4,17 @@
 # projectPackage
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/DSCI-310/DSCI-310-Group-11-package/workflows/R-CMD-check/badge.svg)](https://github.com/DSCI-310/DSCI-310-Group-11-package/actions)
 <!-- badges: end -->
 
-The goal of projectPackage is to provide simplified functions to do data
-preprocessing for exploratory data analyses.
+The goal of projectPackage is to provide simplified functions to achieve
+the goal of data preprocessing for exploratory data analyses. The
+projectPackage makes the following steps quick and easy:
+
+-   Removing certain columns from a data set
+-   Creating a recipe  
+-   Creating a ggpairs correlation plot
 
 ## Installation
 
@@ -21,10 +28,13 @@ devtools::install_github("DSCI-310-Group-11-package")
 
 ## Usage
 
-Often times, when dealing with data, we want to tidy our data by
-removing columns from our data set. It can get monotonous writing and
-seeing the same lines of code over and over again across different
-projects, so `projectPackage::data_cleaning()` solves that.
+Often when you work with large data sets, there will be columns that are
+redundant or not of interest. It can get monotonous writing and seeing
+the same lines of code over and over again across different projects, in
+that case, you can use `projectPackage::data_cleaning()`to drop those
+columns. This function differs from `select` and `subset`in that it is
+more narrowed down to a specific usage which can be useful for learners
+who wish to work with simpler and straightforward functions.
 
 ``` r
 library(projectPackage)
@@ -40,9 +50,12 @@ head(tidy_data)
 #> Valiant           18.1   6  225 105 3.460 20.22  0    3    1
 ```
 
-And if we want to create a recipe, we can easily create that using
-`projectPackage::recipe_scale_center()` instead of writing so many lines
-of code.
+And if we want to create a recipe, we can easily accomplish that using
+`projectPackage::recipe_scale_center()`. This function scales and
+centers all the predictor variables as well as building a new model
+specification and recipe for the analysis. Therefore, the function saves
+tons of time as it minimizes the amount of coding that you have to
+write.
 
 ``` r
 recipe_scale_center(mtcars, mpg ~ hp)
@@ -61,10 +74,15 @@ recipe_scale_center(mtcars, mpg ~ hp)
 ```
 
 Lastly, if you want to create a `ggpairs` correlation matrix plot, this
-package also covers that, and also makes it prettier!
+package also covers that! However, this function differs from the
+function `ggpairs()` in that it adds additional aesthetics which makes
+it prettier and more readable.
 
 ``` r
 correlation_graph(mtcars[1:3])
+#> Registered S3 method overwritten by 'GGally':
+#>   method from   
+#>   +.gg   ggplot2
 ```
 
 <img src="man/figures/README-corr-plot-1.png" width="100%" />
