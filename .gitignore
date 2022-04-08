@@ -1,4 +1,4 @@
-.DS_Store
+**/.DS_Store
 
 # R ignores
 # History files
@@ -40,3 +40,4 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+inst/doc

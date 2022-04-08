@@ -1,0 +1,92 @@
+---
+title: "project_package-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{project_package-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, message = FALSE, echo = FALSE, error = FALSE}
+library(projectPackage)
+
+```
+
+## Introduction to projectPackage
+
+The goal of projectPackage is to provide simplified functions to achieve the goal of data preprocessing for exploratory data analyses. The projectPackage makes the following steps quick and easy:
+
+-   Removing certain columns from a data set
+-   Creating a ggpairs correlation plot
+-   Creating a recipe for knn model
+
+This document introduces you all of the tools mentioned above as well as examples of how to apply them to data frames and use them in different real-world scenarios.
+
+
+## Data: `mtcars`
+
+For the purpose of demonstration, we will use a basic data set called `mtcars`. This data set has 11 columns, 32 rows and is documented in ?mtcars. Note that "mtcars" is a data frame and below is the first 6 rows.
+
+```{r dataset, warning=FALSE, echo = FALSE}
+head(mtcars)
+data <- mtcars
+```
+
+## Demonstration of basic functions in projectPackage
+
+## 1. Dropping columns with data_cleaning()
+
+Often when you work with large data sets, there will be columns that are redundant or not of interest. In that case, you can use our function `data_cleaning()` to drop those columns. For details on how to use the function, check out `help(data_cleaning)`.
+
+
+-   **dropping a single column "mpg" from mtcars**
+
+```{r data_cleaning1, warning = FALSE, error = FALSE}
+head(data_cleaning(data, "mpg"))
+```
+
+As you can see above, the column mpg has been dropped from the data frame.
+
+-   **dropping multiple columns from mtcars**
+
+```{r data_cleaning2, warning = FALSE, error = FALSE}
+head(data_cleaning(data, c("mpg","disp","qsec")))
+```
+
+Again, columns mpg, disp and qsec has been dropped.
+
+-   **When an inappropriate column name is inputted, an error will occur.**
+
+For instance, if I accidentally used the wrong column name mpf instead of mpg. The function will kindly produce an error.
+
+data_cleaning(data, "mpf") will produce the following message: *"Error in data_cleaning(data, "mpf") : column name does not exist in the data frame"*
+
+
+## 3. Creating a recipe for knn model
+=======
+Often times visualizations are needed to better understand the raw/modified data. Data visualization helps in the breakdown of complex problems by transforming data into a more understandable format and showing trends and outliers. A good visualization tells a story by reducing noise from data and emphasizing the most important facts. 
+
+We know that `GGally`'s `ggpairs()` function can create a correlation matrix for us, however, the plot can be hard to read if there is a lot of data. Additionally, the plot can look a bit boring -- lacking colour. The `correlation_graph()` function solves those problems for us. 
+
+For details on how to use the function, check out `help(correlation_graph)`.
+
+
+```{r plot, warning = FALSE, echo = FALSE}
+correlation_graph(data[1:3])
+
+```
+
+## 3. Creating a recipe for knn model using `recipe_scale_center()`
+`recipe_scale_center()` creates a recipe and also scales and centers all the predictors in the given formula.
+
+For example, we can create a recipe using `mpg` has the target and `hp` and `cyl` as the predictors.
+```{r recipe-scale-center, warning = FALSE, error = FALSE}
+recipe_scale_center(data, mpg ~ hp + cyl)
+```
