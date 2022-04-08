@@ -38,10 +38,11 @@ devtools::install_github("DSCI-310-Group-11-package")
 
 Often when you work with large data sets, there will be columns that are redundant or not of interest. It can get monotonous writing and seeing the same lines of code over and over again across different projects, in that case, you can use `projectPackage::data_cleaning()`to drop those columns. This function differs from `select` and `subset`in that it is more narrowed down to a specific usage which can be useful for learners who wish to work with simpler and straightforward functions.   
 
+```{r load-package, warning = FALSE, echo = FALSE}
+library(projectPackage)
+```
 
 ```{r data-cleaning}
-library(projectPackage)
-
 tidy_data <- data_cleaning(mtcars, c("drat","vs"))
 head(tidy_data)
 ```
@@ -53,7 +54,6 @@ recipe_scale_center(mtcars, mpg ~ hp)
 ```
 
 Lastly, if you want to create a `ggpairs` correlation matrix plot, this package also covers that! However, this function differs from the function `ggpairs()` in that it adds additional aesthetics which makes it prettier and more readable.
-
 
 ``` {r corr-plot}
 correlation_graph(mtcars[1:3])

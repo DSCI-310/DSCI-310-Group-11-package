@@ -37,8 +37,6 @@ more narrowed down to a specific usage which can be useful for learners
 who wish to work with simpler and straightforward functions.
 
 ``` r
-library(projectPackage)
-
 tidy_data <- data_cleaning(mtcars, c("drat","vs"))
 head(tidy_data)
 #>                    mpg cyl disp  hp    wt  qsec am gear carb
