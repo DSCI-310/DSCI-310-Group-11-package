@@ -66,6 +66,17 @@ For instance, if I accidentally used the wrong column name mpf instead of mpg. T
 data_cleaning(data, "mpf") will produce the following message: *"Error in data_cleaning(data, "mpf") : column name does not exist in the data frame"*
 
 ## 2. Creating a ggpairs correlation plot
+Often times visualizations are needed to better understand the raw/modified data. Data visualization helps in the breakdown of complex problems by transforming data into a more understandable format and showing trends and outliers. A good visualization tells a story by reducing noise from data and emphasizing the most important facts. 
+
+We know that `GGally`'s `ggpairs()` function can create a correlation matrix for us, however, the plot can be hard to read if there is a lot of data. Additionally, the plot can look a bit boring -- lacking colour. The `correlation_graph()` function solves those problems for us. 
+
+For details on how to use the function, check out `help(correlation_graph)`.
+
+
+```{r plot, warning = FALSE, echo = FALSE}
+correlation_graph(data[1:3])
+
+```
 
 ## 3. Creating a recipe for knn model using `recipe_scale_center()`
 `recipe_scale_center()` creates a recipe and also scales and centers all the predictors in the given formula.
@@ -74,4 +85,3 @@ For example, we can create a recipe using `mpg` has the target and `hp` and `cyl
 ```{r recipe-scale-center, warning = FALSE, error = FALSE}
 recipe_scale_center(data, mpg ~ hp + cyl)
 ```
-
