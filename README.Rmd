@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # projectPackage
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/DSCI-310/DSCI-310-Group-11-package/workflows/R-CMD-check/badge.svg)](https://github.com/DSCI-310/DSCI-310-Group-11-package/actions)
 <!-- badges: end -->
 
 The goal of projectPackage is to provide simplified functions to do data 
